@@ -2,11 +2,15 @@
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
 
 
+        Compare<String> c1 = new Compare<>("Banana" , "Peach" , "Apple");
         Compare<Integer> c = new Compare<>(10, 15, 20);
+        Compare<Float>  c2 =  new Compare<>(10.5f,12.5f,9.5f);
+
+        System.out.println(c1.compare(c1.a, c1.b,c1.c));
         System.out.println(c.compare(c.a, c.b, c.c));
+        System.out.println(c.compare(c2.a, c2.b, c2.c));
     }
 }
 
