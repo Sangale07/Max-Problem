@@ -17,8 +17,9 @@ public class Main {
 
         System.out.println(c1.compare(c1.a, c1.b,c1.c));
         System.out.println(c.compare(c.a, c.b, c.c));
-        System.out.println(c.compare(c2.a, c2.b, c2.c));
+        System.out.println(c2.compare(c2.a, c2.b, c2.c));
         System.out.println(max(arr , n));
+        c1.printMax();
     }
     static int max(int[] arr , int n){
         Arrays.sort(arr);
@@ -27,10 +28,10 @@ public class Main {
     }
 }
 
-class Compare<T>{
+class Compare<T extends Comparable<T>>{
     T a;
-    T b;
-    T c;
+     T b;
+     T c;
 
     Compare(T a , T b ,T c){
         this.a = a;
@@ -38,7 +39,7 @@ class Compare<T>{
         this.c  = c;
     }
 
-    public <T extends Comparable<T>> T compare(T a ,T b ,T c){
+    public T compare(T a ,T b ,T c){
         T max = a;
         if(b.compareTo(max) >0){
             max = b;
@@ -48,5 +49,9 @@ class Compare<T>{
         }
 
         return max;
+    }
+    public void printMax(){
+        T temp = compare(a , b , c);
+        System.out.println(temp);
     }
 }
